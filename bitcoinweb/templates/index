@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="5" />
+</head>
+<body>
+<h1>The days mean is {{days_mean}}</h1>
+<h1>The cost is {{cost_mean}}</h1>
+<h1>Now   price: {{message_tuple[0]}} buy: {{message_tuple[1]}}</h1>
+
+<form method="POST" action="/">
+    {{ form.name.label }} {{ form.name(size=20) }}
+    <input type="submit" value="open">
+</form>
+
+<table border='1', cellpadding="10">
+  <tr>
+    <th>order_id</th>
+    <th>date</th>
+    <th>price</th>
+    <th>amount</th>
+    <th>cost</th>
+  </tr>
+{% for item in orders_list %}
+  <tr>
+    <th>{{item[0]}}</th>
+<script>     
+function getLocalTime(nS) {     
+    return new Date(parseInt(nS) ).toLocaleString().substr(0,19)}     
+document.write("<th>"+getLocalTime({{item[1]}})+"</th>");
+</script> 
+    <th>{{item[2]}}</th>
+    <th>{{item[3]}}</th>
+    <th>{{item[4]}}</th>
+  </tr>
+{% endfor %}
+</table>
+</body>
+</html>
